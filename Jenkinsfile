@@ -17,11 +17,17 @@ pipeline {
             }
         }
         
-        stage('consolidated results'){
+//         stage('consolidated results'){
+//             steps{
+//                 input("Do you want to capture results?")
+//                 junit '**/target/surefire-reports/TEST-*.xml'
+//                 archive 'target/*.jar'
+//             }
+//         }
+        
+        stage('Email'){
             steps{
-                input("Do you want to capture results?")
-                junit '**/target/surefire-reports/TEST-*.xml'
-                archive 'target/*.jar'
+                mail bcc: '', body: 'SAmple body', cc: '', from: '', replyTo: '', subject: 'Sample Subject', to: 'sansarerutik19@gmail.com'
             }
         }
     }
